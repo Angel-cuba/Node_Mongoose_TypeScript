@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import {configDB} from './keytoserver/key'
+import UserModel from './models/User';
 
 
 async function connectDB() {
@@ -8,3 +9,12 @@ async function connectDB() {
 }
 
 connectDB();
+
+const user = new UserModel({
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'joedoe@gmail.com',
+    password: '12345'
+})
+
+console.log(user);
