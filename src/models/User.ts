@@ -1,15 +1,15 @@
 import {prop, getModelForClass} from '@typegoose/typegoose'
 class User {
-  @prop()
-  firstName: string;
+  @prop({required: true, })//mongoose
+  firstName: string; //typescript
 
-  @prop()
-lastrName: string;
+  @prop({required: true, })
+lastName: string;
 
-  @prop()
+  @prop({required: true, trim: true, unique: true, })
   email: string;
 
-  @prop()
+  @prop({required: true, minlength: 5, })
   password: string;
 }
 
