@@ -1,5 +1,6 @@
-import  {getModelForClass, modelOptions, prop} from '@typegoose/typegoose'; 
+import  {getModelForClass, modelOptions, prop, Ref} from '@typegoose/typegoose'; 
 import {nanoid }from 'nanoid';
+import  {UserModel } from './User';
 
 @modelOptions({
   schemaOptions: {
@@ -29,6 +30,9 @@ sku: string;
 
   @prop({type: ()=> [Comments]})
   comments: Comments[];
+
+@prop({ref: ()=> UserModel})
+  owner: Ref<typeof UserModel>;
 }
 
 const ProductsModel = getModelForClass(Products);
