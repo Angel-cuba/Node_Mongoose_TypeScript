@@ -55,16 +55,20 @@ async function executeQuery() {
 // console.log(results);
 
 
-// const user = new UserModel({
-//   firstName: 'Alto',
-//   lastName: 'Keyt',
-//   email: 'alto2@gmail.com',
-//   password: '12345',
+const user = new UserModel({
+  firstName: 'Alto2',
+  lastName: 'Keyt',
+  email: 'alto14@gmail.com',
+  password: '12345',
 //   roles: ["6284c9eabcfd7fc65ec97184", "6284c9eabcfd7fc65ec97186"],
-// })
+ })
 // await user.save()
 // console.log(user);
-const user = await UserModel.findById('6284df4a656e846afbcd1845').populate('roles', 'name -_id')
+// const user = await UserModel.findById('6284df4a656e846afbcd1845').populate('roles', 'name -_id')
+// console.log(user);
+// const users = await UserModel.findByFirstName('Alto')
+user.password   = user.encryptPassword('12345')
+await user.save()
 console.log(user);
 }
 
